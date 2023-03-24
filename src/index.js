@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
  let form = document.querySelector('form')
  form.addEventListener('submit', (e) => {
   e.preventDefault()
-  handleToDo(e.target.new_task_description.value)
+  doTask(e.target.new_task_description.value)
   form.reset()
  })
 });
-function handleToDo(todo){
+function doTask(todo){
   //console.log(todo)
   let li = document.createElement('li')
   let btn = document.createElement('button')
-  btn.addEventListener('click', handleDelete)
+  btn.addEventListener('click', deleteTask)
   btn.textContent = ' x'
   li.textContent = `${todo} `
   li.appendChild(btn)
@@ -19,7 +19,7 @@ function handleToDo(todo){
   document.querySelector('#tasks').appendChild(li)
 }
 
-function handleDelete(e){
+function deleteTask(e){
   e.target.parentNode.remove()
 }
 
